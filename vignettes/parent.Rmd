@@ -1,0 +1,48 @@
+---
+title: "parent"
+author: "R. Mark Sharp"
+date: "4/2/2021"
+output: 
+  bookdown::pdf_document2:
+    keep_tex: true
+    number_sections: true
+
+toc: true
+
+---
+
+```{r setup, include=FALSE}
+library(kableExtra) # for kbl() function
+library(stringi)
+knitr::opts_chunk$set(echo = TRUE, include = TRUE, results = "rmarkdown")
+
+```
+
+
+# Reference Examples
+
+[This section](#rmarkdown-2) should take you to **RMarkdown 2** in _child_2.Rmd
+
+You can embed plots and reference them. For example, see 
+Figure \@ref(fig:pressure) below.
+
+You can embed tables and reference them. For example, see Table
+\@ref(tab:cars-fivenum) below.
+
+Note that though there are multiple tables and figures, only those with 
+captions get labels created that can be used for references.
+
+
+```{r pressure, fig.cap = "Temperature vs Pressure", echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+```{r child = "children/_child_1.Rmd", ref = "child-1"}
+```
+
+Child 2 file is next.
+
+```{r child = "children/_child_2.Rmd", ref = "child-2"}
+```
+

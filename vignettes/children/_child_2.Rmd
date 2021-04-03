@@ -1,0 +1,36 @@
+---
+title: "child_2.Rmd"
+author: "R. Mark Sharp"
+date: "4/2/2021"
+output: pdf_document
+---
+
+```{r setup-2, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown 2 {#rmarkdown-2}
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+`
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars-2}
+kbl(summary(cars))
+
+```
+
+```{r}
+caption <- stri_c("Tukey's five number summary for the \"Speed\" and ",
+                  "\"Stopping Distance\".")
+```
+
+```{r cars-fivenum}
+row_names <- c("Minimum", "Lower-Hinge", "Median", "Upper-Hinge", "Maximum")
+col_names <- stringi::stri_trans_totitle(names(cars))
+cars_fivenum <- as.data.frame(vapply(cars, fivenum, numeric(5)), 
+                              row.names = row_names)
+kableExtra::kbl(cars_fivenum, col.names = col_names,
+                caption = caption)
+
+```
