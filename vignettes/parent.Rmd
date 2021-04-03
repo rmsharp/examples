@@ -6,7 +6,9 @@ output:
   bookdown::pdf_document2:
     keep_tex: true
     number_sections: true
-
+linkcolor: blue
+urlcolor: red
+citecolor: green
 toc: true
 
 ---
@@ -21,13 +23,21 @@ knitr::opts_chunk$set(echo = TRUE, include = TRUE, results = "rmarkdown")
 
 # Reference Examples
 
+Notice the top level YAML header color settings for the various links.
+
 [This section](#rmarkdown-2) should take you to **RMarkdown 2** in _child_2.Rmd
 
-You can embed plots and reference them. For example, see 
+You can also link to specific text such as the 
+[knitr description](#knitr-description).
+
+You can embed plots and reference them with the \\@ref(label) syntax, which
+provides the number of the item being referenced. For example, see 
 Figure \@ref(fig:pressure) below.
 
 You can embed tables and reference them. For example, see Table
 \@ref(tab:cars-fivenum) below.
+
+Tables and Figures are automatically numbered in their individual sequences. 
 
 Note that though there are multiple tables and figures, only those with 
 captions get labels created that can be used for references.
